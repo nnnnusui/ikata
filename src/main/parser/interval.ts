@@ -1,6 +1,4 @@
 import { orN, repeat } from "combinator-node";
-import { sames } from "./sames";
+import { eol, space } from "./things";
 
-const space = sames(" ");
-const eol = sames("\n");
 export const interval = repeat(orN(space, eol));
