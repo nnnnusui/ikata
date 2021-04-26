@@ -1,10 +1,7 @@
-import { chainR, not, orN, convert, repeat } from "combinator-node";
 import { Parser } from "../Parser";
-import { any } from "./minimum/any";
 import { interval } from "./interval";
+import { strNot } from "./strNot";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const word = (...nots: Parser<any>[]): Parser<string> => {
-  const char = chainR(not(orN(interval, ...nots)), any);
-  return convert(repeat(char), (it) => it.join(""));
-};
+export const word = (...nots: Parser<any>[]): Parser<string> =>
+  strNot(interval, ...nots);
