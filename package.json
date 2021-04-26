@@ -14,7 +14,7 @@
     "compile": "tsc -p ./",
     "exec": "node dist/main.js",
     "test": "mocha --require ts-node/register --watch-extensions ts \"src/test/**/*.ts\"",
-    "routine": "run-s fix compile exec",
+    "routine": "run-s fix compile test exec",
     "monitor": "nodemon -e ts --ignore \"dist/*\" --exec \"npm run routine\""
   },
   "keywords": [],
@@ -27,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "chai": "^4.3.4",
+    "chai-subset": "^1.6.0",
     "eslint": "^7.22.0",
     "eslint-plugin-prettier": "^3.3.1",
     "mocha": "^8.3.2",
@@ -37,6 +38,7 @@
     "typescript": "^4.2.3"
   },
   "dependencies": {
+    "@types/chai-subset": "^1.3.3",
     "combinator-node": "^1.1.9"
   }
 }
