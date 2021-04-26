@@ -1,6 +1,6 @@
 import { Combinator } from "combinator-node";
-import { Char } from "../type/Char";
-import { Parser } from "../type/Parser";
+import { Char } from "../../Char";
+import { Parser } from "../../Parser";
 
 export const any: Parser<Char> = (context) => {
   const [head, ...tails] = context.src;

@@ -1,5 +1,5 @@
 import { chainR, not, orN, convert, repeat } from "combinator-node";
-import { Parser } from "./type/Parser";
+import { Parser } from "../Parser";
 import { any } from "./minimum/any";
 import { interval } from "./interval";
 

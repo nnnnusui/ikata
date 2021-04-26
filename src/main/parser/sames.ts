@@ -1,5 +1,5 @@
 import { chainN, convert } from "combinator-node";
-import { Parser } from "./type/Parser";
+import { Parser } from "../Parser";
 import { same } from "./minimum/same";
 import "./minimum/Char";
 

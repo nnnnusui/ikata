@@ -1,6 +1,6 @@
 import { Combinator } from "combinator-node";
-import { Parser } from "../type/Parser";
-import { Char } from "../type/Char";
+import { Parser } from "../../Parser";
+import { Char } from "../../Char";
 import { any } from "./any";
 
 export const same = (char: Char): Parser<Char> => (context) => {
