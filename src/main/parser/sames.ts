@@ -6,5 +6,5 @@ import "./minimum/Char";
 export const sames = (value: string): Parser<string> => {
   const sames = value.chars().map((it) => same(it));
   const syntax = chainN(...sames);
-  return convert(syntax, (it) => [...it].join(""));
+  return convert(syntax, (it) => it.join(""));
 };
