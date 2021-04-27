@@ -30,7 +30,7 @@ type DefineFunction = {
   value: {
     name: string;
     returnType: string | null;
-    function: string;
+    function: FunctionLiteral;
   };
 };
 

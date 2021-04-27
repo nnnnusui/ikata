@@ -1,38 +1,6 @@
-import { chainR, option, chainN, chainL } from "combinator-node";
-import { sames } from "./main/parser/sames";
-import { word } from "./main/parser/word";
-import { interval } from "./main/parser/interval";
-import { tokenize } from "./main/tokenizer/tokenize";
+import { init } from "./main/Context";
+import { defineFunction } from "./main/tokenizer/defineFunction";
 
-const returnType = chainR(sames(":"), option(interval), word());
-const argumentType = word(sames("{"));
-
-const name = word(sames(":"));
-
-const naming = chainR(sames("f "), name);
-const assignmentOperator = chainR(option(interval), sames("="));
-const functionLiteral = chainN(
-  chainL(option(argumentType), sames("{")),
-  chainL(word(sames("}")), sames("}"))
-); // tokenize
-const assignmentOperation = chainR(
-  assignmentOperator,
-  option(interval),
-  functionLiteral
-);
-const syntax = chainN(naming, option(returnType), assignmentOperation);
-const defineFunction = tokenize(syntax, ([name, returnType, fun]) => ({
-  kind: "define function",
-  value: {
-    name,
-    returnType,
-    function: fun.join(""),
-  },
-}));
-
-console.dir(
-  defineFunction({ src: "f main: void = {test} ".chars(), offset: 0 }),
-  {
-    depth: Number.MAX_VALUE,
-  }
-);
+console.dir(defineFunction(init(`f main: void = {raw("sample")} `)), {
+  depth: Number.MAX_VALUE,
+});
