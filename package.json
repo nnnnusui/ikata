@@ -4,6 +4,7 @@
   "description": "ikata programming language",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
+  "bin": { "ikatac": "dist/command/compile.js" },
   "scripts": {
     "lint:prettier": "prettier src --check",
     "lint:eslint": "eslint src",
