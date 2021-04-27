@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-const TokenKind = ["define function", "text literal"] as const;
+const TokenKind = ["define function", "text literal", "raw literal"] as const;
 export type TokenKind = typeof TokenKind[number];
 
 type DefineFunction = {
@@ -16,7 +16,12 @@ type TextLiteral = {
   value: string;
 };
 
-export type TokenValue = DefineFunction | TextLiteral;
+type RawLiteral = {
+  kind: "raw literal";
+  value: TextLiteral;
+};
+
+export type TokenValue = DefineFunction | TextLiteral | RawLiteral;
 export type Token<Kind extends TokenKind> = Extract<
   TokenValue,
   Record<"kind", Kind>
