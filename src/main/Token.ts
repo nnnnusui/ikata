@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 const TokenKind = [
+  "file",
   "define function",
   "function literal",
   "text literal",
@@ -34,7 +35,14 @@ type DefineFunction = {
   };
 };
 
+type TopLevel = DefineFunction | RawLiteral;
+type File = {
+  kind: "file";
+  value: TopLevel[];
+};
+
 export type TokenValue =
+  | File
   | DefineFunction
   | FunctionLiteral
   | TextLiteral
