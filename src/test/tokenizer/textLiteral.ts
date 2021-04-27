@@ -25,6 +25,12 @@ describe(kind, () => {
       |line1
       |  line2
       "`).containSubset(ok("line1\n  line2")));
+    it(`'"' can be included in pipe paling`, () =>
+      check(`"
+      |it = "x"
+      "`).containSubset(ok(`it = "x"`)));
+    it(`pipe paling can have zero indentation`, () =>
+      check(`"\n|zero indent\n"`).containSubset(ok(`zero indent`)));
 
     it("enclose lines", () =>
       // WARN: This value is affected by indentation.

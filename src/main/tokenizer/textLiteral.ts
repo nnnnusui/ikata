@@ -15,7 +15,7 @@ import { tokenize } from "./tokenize";
 
 const enclosure = sames('"');
 const paling = sames("|");
-const newLine = chainN(eol, interval, paling);
+const newLine = chainN(eol, option(interval), paling);
 
 const toClose = convert(option(strNot(enclosure)), (it) => (it ? it : ""));
 const paled = (() => {
