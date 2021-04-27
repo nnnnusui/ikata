@@ -1,14 +1,11 @@
-import { expect } from "chai";
-import { init } from "../../main/Context";
 import { rawLiteral } from "../../main/tokenizer/rawLiteral";
-import "../env";
+import { tokenizerTesterFrom } from "../env";
 
-const ok = (value: string) => ({
-  ok: true,
-  get: { kind: "raw literal", value: { kind: "text literal", value } },
-});
-const check = (source: string) => expect(rawLiteral(init(source))).to;
-describe("rawLiteral", () => {
+const kind = "raw literal";
+const { ok: rawOk, check } = tokenizerTesterFrom(kind, rawLiteral);
+
+const ok = (value: string) => rawOk({ kind: "text literal", value });
+describe(kind, () => {
   describe("fail with", () => {
     it("prefix not exists", () => check(`aw("")`).containSubset({ ok: false }));
     it("value not exists", () => check(`raw()`).containSubset({ ok: false }));
