@@ -1,14 +1,8 @@
-import { expect } from "chai";
-import { init } from "../../main/Context";
 import { functionLiteral } from "../../main/tokenizer/functionLiteral";
-import "../env";
+import { tokenizerTesterFrom } from "../env";
 
 const kind = "function literal";
-const ok = (value: any) => ({
-  ok: true,
-  get: { kind, value },
-});
-const check = (source: string) => expect(functionLiteral(init(source))).to;
+const { ok, check } = tokenizerTesterFrom(kind, functionLiteral);
 describe(kind, () => {
   const order = `raw("sample")`;
   describe("fail with", () => {
