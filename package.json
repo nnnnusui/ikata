@@ -1,10 +1,12 @@
 {
   "name": "ikata",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ikata programming language",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
-  "bin": { "ikatac": "dist/command/compile.js" },
+  "bin": {
+    "ikatac": "dist/command/compile.js"
+  },
   "scripts": {
     "lint:prettier": "prettier src --check",
     "lint:eslint": "eslint src",
