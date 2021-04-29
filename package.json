@@ -1,6 +1,6 @@
 {
   "name": "ikata",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "ikata programming language",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
