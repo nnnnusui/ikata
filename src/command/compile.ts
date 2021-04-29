@@ -33,7 +33,8 @@ cli
         const parsed = parse(text);
         if (!parsed.ok) throw parsed;
         const outputDir = Path.dirname(outputPath);
-        if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
+        if (!fs.existsSync(outputDir))
+          fs.mkdirSync(outputDir, { recursive: true });
         fs.writeFile(outputPath, transpile(parsed.get), () => {});
         console.log(`writed to: ${outputPath}`);
       });
